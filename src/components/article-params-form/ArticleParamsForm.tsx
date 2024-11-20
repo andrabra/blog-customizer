@@ -9,6 +9,7 @@ import {
 	ArticleStateType,
 	backgroundColors,
 	contentWidthArr,
+	defaultArticleState,
 	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
@@ -64,6 +65,14 @@ export const ArticleParamsForm = ({
 		handlerClickBtn();
 	};
 
+	const handleButtonReset = () => {
+		setFontFamily(defaultArticleState.fontFamilyOption);
+		setFontSize(defaultArticleState.fontSizeOption);
+		setFontColor(defaultArticleState.fontColor);
+		setBgColor(defaultArticleState.backgroundColor);
+		setWidth(defaultArticleState.contentWidth);
+	};
+
 	return (
 		<>
 			<ArrowButton
@@ -112,12 +121,22 @@ export const ArticleParamsForm = ({
 					<Select
 						selected={width}
 						options={contentWidthArr}
-						onChange={(option) => setFontColor(option)}
+						onChange={(option) => setWidth(option)}
 						title='Ширина контента'
 					/>
 					<div className={styles.bottomContainer}>
-						<Button title='Сбросить' htmlType='reset' type='clear' />
-						<Button title='Применить' htmlType='submit' type='apply' />
+						<Button
+							title='Сбросить'
+							htmlType='reset'
+							type='clear'
+							onClick={() => handleButtonReset()}
+						/>
+						<Button
+							title='Применить'
+							htmlType='submit'
+							type='apply'
+							onClick={() => handleButtonSubmit()}
+						/>
 					</div>
 				</form>
 			</aside>
