@@ -79,7 +79,8 @@ export const ArticleParamsForm = ({
 		<>
 			<ArrowButton
 				isOpen={isOpen}
-				onClick={() => {
+				onClick={(event: React.MouseEvent) => {
+					event.nativeEvent.stopImmediatePropagation();
 					handlerClickBtn();
 				}}
 			/>
