@@ -26,7 +26,7 @@ export const ArticleParamsForm = ({
 	articleState,
 	setArticleState,
 }: ArticleParamsFormProps) => {
-	const [isOpen, setIsOpen] = useState<boolean>(true);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const [fontFamily, setFontFamily] = useState(articleState.fontFamilyOption);
 	const [fontSize, setFontSize] = useState(articleState.fontSizeOption);
@@ -54,7 +54,8 @@ export const ArticleParamsForm = ({
 		};
 	}, [isOpen]);
 
-	const handleButtonSubmit = (): void => {
+	const handleButtonSubmit = (event: React.FormEvent): void => {
+		event.preventDefault();
 		setArticleState({
 			fontFamilyOption: fontFamily,
 			fontColor: fontColor,
@@ -62,6 +63,7 @@ export const ArticleParamsForm = ({
 			contentWidth: width,
 			fontSizeOption: fontSize,
 		});
+
 		handlerClickBtn();
 	};
 
@@ -135,7 +137,7 @@ export const ArticleParamsForm = ({
 							title='Применить'
 							htmlType='submit'
 							type='apply'
-							onClick={() => handleButtonSubmit()}
+							onClick={(e: React.FormEvent) => handleButtonSubmit(e)}
 						/>
 					</div>
 				</form>
