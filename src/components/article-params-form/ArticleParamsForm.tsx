@@ -91,7 +91,7 @@ export const ArticleParamsForm = ({
 						? styles.container_open + ' ' + styles.container
 						: styles.container
 				}>
-				<form className={styles.form}>
+				<form className={styles.form} onSubmit={handleButtonSubmit}>
 					<Text size={31} weight={800} uppercase>
 						Задайте параметры
 					</Text>
@@ -134,12 +134,7 @@ export const ArticleParamsForm = ({
 							type='clear'
 							onClick={() => handleButtonReset()}
 						/>
-						<Button
-							title='Применить'
-							htmlType='submit'
-							type='apply'
-							onClick={(e: React.FormEvent) => handleButtonSubmit(e)}
-						/>
+						<Button title='Применить' htmlType='submit' type='apply' />
 					</div>
 				</form>
 			</aside>
