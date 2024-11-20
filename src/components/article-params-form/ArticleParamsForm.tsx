@@ -8,7 +8,9 @@ import { Text } from 'src/ui/text';
 import {
 	ArticleStateType,
 	fontFamilyOptions,
+	fontSizeOptions,
 } from 'src/constants/articleProps';
+import { RadioGroup } from 'src/ui/radio-group';
 
 type ArticleParamsFormProps = {
 	articleState: ArticleStateType;
@@ -82,6 +84,13 @@ export const ArticleParamsForm = ({
 						options={fontFamilyOptions}
 						onChange={(option) => setFontFamily(option)}
 						title='Шрифт'
+					/>
+					<RadioGroup
+						name={fontSize.title}
+						options={fontSizeOptions}
+						selected={fontSize}
+						onChange={(option) => setFontSize(option)}
+						title='Размер шрифта'
 					/>
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' htmlType='reset' type='clear' />
