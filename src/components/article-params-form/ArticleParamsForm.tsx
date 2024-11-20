@@ -7,6 +7,7 @@ import { Select } from 'src/ui/select';
 import { Text } from 'src/ui/text';
 import {
 	ArticleStateType,
+	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
 } from 'src/constants/articleProps';
@@ -91,6 +92,12 @@ export const ArticleParamsForm = ({
 						selected={fontSize}
 						onChange={(option) => setFontSize(option)}
 						title='Размер шрифта'
+					/>
+					<Select
+						selected={fontColor}
+						options={fontColors}
+						onChange={(option) => setFontColor(option)}
+						title='Цвет шрифта'
 					/>
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' htmlType='reset' type='clear' />
