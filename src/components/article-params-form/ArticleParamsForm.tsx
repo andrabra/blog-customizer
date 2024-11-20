@@ -7,11 +7,14 @@ import { Select } from 'src/ui/select';
 import { Text } from 'src/ui/text';
 import {
 	ArticleStateType,
+	backgroundColors,
+	contentWidthArr,
 	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
 } from 'src/constants/articleProps';
 import { RadioGroup } from 'src/ui/radio-group';
+import { Separator } from 'src/ui/separator';
 
 type ArticleParamsFormProps = {
 	articleState: ArticleStateType;
@@ -27,8 +30,8 @@ export const ArticleParamsForm = ({
 	const [fontFamily, setFontFamily] = useState(articleState.fontFamilyOption);
 	const [fontSize, setFontSize] = useState(articleState.fontSizeOption);
 	const [fontColor, setFontColor] = useState(articleState.fontColor);
-	const [width, setWidth] = useState(articleState.contentWidth);
 	const [bgColor, setBgColor] = useState(articleState.backgroundColor);
+	const [width, setWidth] = useState(articleState.contentWidth);
 
 	const aside = useRef<HTMLDivElement>(null);
 	const handlerClickBtn = () => {
@@ -98,6 +101,19 @@ export const ArticleParamsForm = ({
 						options={fontColors}
 						onChange={(option) => setFontColor(option)}
 						title='Цвет шрифта'
+					/>
+					<Separator></Separator>
+					<Select
+						selected={bgColor}
+						options={backgroundColors}
+						onChange={(option) => setBgColor(option)}
+						title='Цвет фона'
+					/>
+					<Select
+						selected={width}
+						options={contentWidthArr}
+						onChange={(option) => setFontColor(option)}
+						title='Ширина контента'
 					/>
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' htmlType='reset' type='clear' />
